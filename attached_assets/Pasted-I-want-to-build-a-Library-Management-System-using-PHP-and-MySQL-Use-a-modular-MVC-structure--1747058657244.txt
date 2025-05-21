@@ -1,0 +1,101 @@
+I want to build a "Library Management System" using PHP and MySQL.
+
+Use a **modular MVC structure** (separate includes like config.php, db.php, and organized folders for pages like login, admin, user).
+
+**Database**: Use MySQL (compatible with XAMPP and phpMyAdmin) — not SQLite.
+
+The system must have **2 types of logins**:
+- ✅ Admin Login (only login, no signup)
+- ✅ User Login/Signup (users can sign up and login)
+
+---
+
+### Features to Implement:
+
+#### 🔑 Authentication:
+- Admin login with hardcoded or pre-created credentials in the database. **No signup** for admin.
+- Users can sign up and login.
+- Use PHP sessions to maintain login state.
+
+---
+
+#### 👤 **User Features:**
+1. **Search Books**:
+   - Search by **Book Name**, **Book ID**, or **Author Name**.
+   
+2. **Borrow Books**:
+   - Users can borrow available books.
+   - Book availability should decrease when borrowed.
+
+3. **Return Books**:
+   - Users can view their borrowed books and return them.
+   - Book availability should increase when returned.
+
+---
+
+#### 🛠️ **Admin Features:**
+1. **Add New Books**:
+   - Admin can add new books with fields: `Book ID`, `Book Name`, `Author`, `Total Copies`, `Available Copies`.
+
+2. **Edit Existing Books**:
+   - Admin can update book details (name, author, total copies).
+   - When total copies are updated, available copies should adjust accordingly.
+
+3. **Delete Books**:
+   - Admin can delete a book from the library.
+   - Admin cannot borrow books.
+
+---
+
+### 🎯 Functional Requirements:
+- Use **PDO** for secure MySQL connection.
+- Passwords should be **hashed** using `password_hash()` and verified using `password_verify()`.
+- Use **prepared statements** to prevent SQL injection.
+- Implement basic **Bootstrap** or simple CSS for a clean UI.
+- Pages:
+  - `login.php`
+  - `signup.php`
+  - `admin/dashboard.php`
+  - `user/dashboard.php`
+  - `user/search.php`
+  - `user/borrow.php`
+  - `user/return.php`
+  - `admin/add_book.php`
+  - `admin/edit_book.php`
+  - `admin/delete_book.php`
+
+---
+
+### 💾 Database Tables:
+- `admins` (admin login info)
+- `users` (user login info)
+- `books` (book details)
+- `borrowed_books` (records of borrow and return)
+
+---
+
+### 🚀 Deployment Requirements:
+- Should be deployable locally using **XAMPP** (code placed in `htdocs/LibraryManagementSystem`).
+- Must have a ready-to-import **database.sql** file for phpMyAdmin.
+- Ensure `NOW()` works in queries (use MySQL syntax, not SQLite).
+
+---
+
+### 📦 Folder Structure Example:
+- `/includes/config.php`
+- `/includes/db.php`
+- `/admin/`
+- `/user/`
+- `/sql/database.sql`
+- `/assets/css/`
+- `/index.php`
+
+---
+
+### 🎯 Extra:
+- Use sessions to restrict page access:
+  - Admin pages accessible only when logged in as admin.
+  - User pages accessible only when logged in as user.
+- Show appropriate success and error messages.
+
+Please generate the complete code with this structure and features.
